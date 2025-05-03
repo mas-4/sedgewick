@@ -8,16 +8,8 @@ int main(void) {
         sz[i] = 1;
     }
     while (scanf("%d %d", &p, &q) == 2) {
-        for (i = p; i != id[i]; i = id[i]) {
-            int t = i;
-            i = id[id[t]];
-            id[t] = i;
-        }
-        for (j = q; j != id[j]; j = id[j]) {
-            int t = j;
-            j = id[id[t]];
-            id[t] = id[id[t]];
-        }
+        for (i = p; i != id[i]; i = id[i]);
+        for (j = q; j != id[j]; j = id[j]);
         if (i == j) continue;
         if (sz[i] < sz[j]) {
             id[i] = j; sz[j] += sz[i];
